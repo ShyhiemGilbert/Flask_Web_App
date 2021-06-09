@@ -27,3 +27,11 @@ A
 venv/pyvenv.cfg,b/0/b0e04816a9971064291cd324e57037faa4a05306
 @
 website/views.py,e/7/e77e1212ee620da479d24f1e450ac7d5cc16c14f
+G
+website/static/index.js,c/d/cd43b6da6eb35e67b2b17c6966d6543dc1767751
+K
+website/templates/home.html,7/f/7f7ff49a0e14492a7776c4788da18badc1f63c3d
+K
+website/templates/base.html,d/6/d6879d3ea3e793ea132b540042881a5c1c385096
+8
+Progress,1/b/1b90271d66cf2d3ac755d49a550fe5f31b9eca5f
