@@ -22,12 +22,13 @@ def login():
             if check_password_hash(user.password, password):
                 flash('logged in successfully!', category='success')
                 login_user(user, remember=True)
+                return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
             flash('Email does not exist, please try again.', category='error')
 
-    return render_template("login.html", boolean="True")
+    return render_template("login.html", user=current_user)
 
 
 # Logout route
@@ -84,4 +85,4 @@ def sign_up():
 
             return redirect(url_for('views.home'))
 
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
