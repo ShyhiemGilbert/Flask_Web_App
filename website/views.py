@@ -5,8 +5,6 @@ from . import db
 import json
 
 # define this file is a blueprint
-
-
 views = Blueprint('views', __name__)
 
 
