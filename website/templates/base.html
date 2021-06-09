@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<!--    # Bootstrap-->
+    <!--    # Bootstrap-->
     <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
 </head>
 <body>
 
-                    <!-- navigation bar -->
+<!-- navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler"
             type="button"
@@ -39,12 +39,42 @@
     </div>
 </nav>
 
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+{% if category == 'error' %}
+
+<!-- this is an alert for if there is an error -->
+<div class="alert alert-danger alter-dismissable fade show" role="alert">
+    {{ message }}
+    <!--  Button to dismiss alerts  -->
+    <button type="button" class="close" data-dissmiss="alert">
+        <!-- Icon for the x button -->
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% else %}
+<!-- this is an alert for success -->
+<div class="alert alert-success alter-dismissable fade show" role="alert">
+    {{ message }}
+    <!--  Button to dismiss alerts  -->
+    <button type="button" class="close" data-dissmiss="alert">
+        <!-- Icon for the x button -->
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
 <div class="container">
     {% block content %}
     {% endblock %}
 </div>
 
-                    <!--    # Scripts-->
+<!--    # Scripts-->
 <script
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -67,6 +97,7 @@
         src="{{ url_for('static', filename='index.js') }}"
 
 <!-- two squiggly brackets mean you can put in a python expression -->
-></script>
+>
+</script>
 </body>
 </html>
